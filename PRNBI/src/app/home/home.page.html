@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding fullscreen>
+<ion-content class="ion-padding" fullscreen>
   <ion-card class="welcome-card">
     <img src="../assets/seneca/seneca1-1.jpg" alt="Cade meu seneca aqui!!!" />
     <ion-card-header>
@@ -31,7 +31,7 @@
       </div>
     </ion-item>
   </ion-col>
-  <ion-col class="container" col="6" align-self-end>
+  <ion-col class="container ion-align-self-end" col="6">
     <ion-item><ion-img class="icones image" src="./assets/seneca/motor.jpg"></ion-img>
       <div class="overlayUD">
         <div class="text" (click)="mdlSc2()"><h4>Seção 2</h4><p class="para">Limitações</p></div>
@@ -40,14 +40,14 @@
   </ion-col>  
 </ion-row>
 <ion-row>
-    <ion-col class="container" col="6" align-self-start>
+    <ion-col class="container ion-align-self-start" col="6">
       <ion-item><ion-img class="icones image" src="./assets/icon/seneca_Icon.jpg"></ion-img>
         <div class="overlayDU">
             <div class="text" (click)="mdlSc3()"><h4>Seção 3</h4><p class="para">Procedimentos</p><p class="normal">Normais</p></div>
           </div>
       </ion-item>
     </ion-col>
-    <ion-col class="container" col="6" align-self-start>
+    <ion-col class="container ion-align-self-start" col="6">
       <ion-item><ion-img class="icones image" src="./assets/icon/aviaopoucoemergencia.jpg"></ion-img>
         <div class="overlayDU">
           <div class="text" (click)="mdlSc4()"><h4>Seção 4</h4><p class="emergency">Procedimentos</p><p class="emergency">de emergência</p></div>

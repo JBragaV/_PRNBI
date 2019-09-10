@@ -71,13 +71,13 @@ export class HistoricoPage implements OnInit {
   dataHoje(){
     let data = new Date()
     let dia
-    if((data.getDate()) > 10){
+    if((data.getDate()) >= 10){
       dia = data.getDate()
     }else{
       dia = `0${data.getDate()}`
     }
     let mes
-    if((data.getMonth()+1) > 10){
+    if((data.getMonth()+1) >= 10){
       mes = data.getMonth()+1
       console.log(mes)
     }else{
