@@ -14,6 +14,9 @@ export class Secao1Page implements OnInit {
   ngOnInit() {
   }
 
+  dimensoes = ["Comprimento", "Altura", "Envergadura"]
+  comprimentos = ["8,70m", "3,00m", "11,85m"]
+  
   fecharMdl(){
     this.modalController.dismiss()
   }
