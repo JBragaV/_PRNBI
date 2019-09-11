@@ -32,8 +32,14 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+  checado = false
+  
+  private teste = [{nome: "A1", oi: "outra coisa0", checado: false},
+                   {nome: "A2", oi: "outra coisa1", checado: false},
+                   {nome: "A3", oi: "outra coisa2", checado: false},
+                   {nome: "A4", oi: "outra coisa3", checado: false},
+                   {nome: "A5", oi: "outra coisa4", checado: false},
+                   {nome: "A6", oi: "outra coisa5", checado: false},
+                   {nome: "A7", oi: "outra coisa6", checado: false}]
+
 }
