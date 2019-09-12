@@ -6,40 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
-  }
 
-  ngOnInit() {
-  }
-  checado = false
+  constructor() {}
+
+  ngOnInit() {}
   
-  private teste = [{nome: "A1", oi: "outra coisa0", checado: false},
-                   {nome: "A2", oi: "outra coisa1", checado: false},
-                   {nome: "A3", oi: "outra coisa2", checado: false},
-                   {nome: "A4", oi: "outra coisa3", checado: false},
-                   {nome: "A5", oi: "outra coisa4", checado: false},
-                   {nome: "A6", oi: "outra coisa5", checado: false},
-                   {nome: "A7", oi: "outra coisa6", checado: false}]
+  private inspecaoInterna = [{objeto: "Manche", acao: "Destravado", checado: false},
+                            {objeto: "Freio de estacionamento", acao: "Aplicado", checado: false},
+                            {objeto: "Interruptores", acao: "OFF", checado: false},
+                            {objeto: "Magnetos", acao: "OFF", checado: false},
+                            {objeto: "Equipamentos Eletrônicos", acao: "OFF", checado: false},
+                            {objeto: "Mistura", acao: "Cortada", checado: false},
+                            {objeto: "Master", acao: "ON", checado: false},
+                            {objeto: "Liquidômetro", acao: "Verificar Quantidade", checado: false},
+                            {objeto: "Trem de Pouso", acao: "Verificar lights", checado: false},
+                            {objeto: "Master", acao: "OFF", checado: false},
+                            {objeto: "Cowl Flap", acao: "Abertos", checado: false},
+                            {objeto: "Comandos de Voo", acao: "Verificar Operação", checado: false},
+                            {objeto: "Flap", acao: "Verificar Operação e recolher", checado: false},
+                            {objeto: "Compensadores", acao: "Verificar operação e neutro", checado: false},
+                            {objeto: "Sistema Pito Estático", acao: "Drenar", checado: false},
+                            {objeto: "Cintos", acao: "Verificar condições e travamento", checado: false},
+                            {objeto: "Janelas", acao: "Verificar limpeza", checado: false},
+                            {objeto: "Documentos", acao: "Verificar à bordo", checado: false}]
 
 }

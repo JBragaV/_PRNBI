@@ -25,11 +25,14 @@
   <ion-list>
     <ion-item-divider color="primary">
       <ion-label>
-        Section A
+        Inspeção Interna
       </ion-label>
     </ion-item-divider>
-  
-    <ion-item *ngFor="let t of teste"><ion-checkbox color="primary" [disabled]="t.checado" (click)="t.checado=!t.checado" slot="end"></ion-checkbox><ion-label>{{t.nome}}</ion-label></ion-item>
+    <ion-item *ngFor="let ii of inspecaoInterna">
+      <ion-checkbox color="primary" [disabled]="ii.checado" (click)="ii.checado=!ii.checado" slot="end"></ion-checkbox>
+      <ion-label>{{ii.objeto}}</ion-label>
+      <ion-label>{{ii.acao}}</ion-label>
+    </ion-item>
     
     <ion-item-divider>
       <ion-label>
