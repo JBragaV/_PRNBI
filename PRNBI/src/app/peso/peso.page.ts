@@ -74,6 +74,7 @@ export class PesoPage implements OnInit {
   cobustivel = false // Erro de excesso de combustível --> Depois do calculo de combustível
   payLoad = false // Erro de aeronave sobre carregada --> Depois do calculo de peso
   pesoMaximoPouso = false// Erro de peso maximo de pouso excedido --> Final da página
+  pesoMaximoDecolagem = false// Erro de peso maximo de pouso excedido --> Final da página
   cGd = false// Erro Centro de gravidade fora do limite para decolagem --> Final da Página
   cGp = false// Erro Centro de gravidade fora do limite para pouso ---> Final da página
   ok = false//
@@ -272,6 +273,14 @@ export class PesoPage implements OnInit {
     this.cgp = (numPouso/this.pap).toFixed(3)
     console.log(`O centro de gravidade na: Peso de decolagem é ${this.cgd} e no pouso é ${this.cgp}`)  
     //Iniciar as "analises dos valores. Centro de gravidade e peso"
+    
+    if(this.pad > 1905){
+      this.pesoMaximoDecolagem = true
+      document.getElementById("pesDecolagem").style.color = "red"
+    }else{
+      this.pesoMaximoDecolagem = false
+      document.getElementById("pesDecolagem").style.color = "black"
+    }
 
     if(this.pap > 1814){
       this.pesoMaximoPouso = true
