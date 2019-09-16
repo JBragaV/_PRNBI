@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
 import { calculos } from '../models/calculo';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from "@ionic/storage";
 
-
-const API_URL = 'http://localhost:3000';
-const httpOptions = {
-  headers: new HttpHeaders(
-    {'Content-Type' : 'application/json; charset=utf-8'}
-  )
-};
+//Nome do storage que vai registar os dados do calculo
 const CALCULOS_KEY = "Historico"
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalculoService {
 
-  constructor(private http: HttpClient) { }
-  /*add(calculo: calculos):Promise<any>{
+  constructor(private storage: Storage) { }
+
+  //Metodo para adicionar item do storage
+  add(calculo: calculos):Promise<any>{
     return this.storage.get(CALCULOS_KEY).then((clcls: calculos[])=>{
       if(clcls){
         clcls.push(calculo)
@@ -28,11 +23,13 @@ export class CalculoService {
       }
     })
   }
+
+  //Metodo para resgatar todos os item do storage
   getAll(){
     return this.storage.get(CALCULOS_KEY)
   }
 
-  //OS AJUSTES PARA O SQLITE(MELHOR)
+  //Metodo para deletar item do storage
   delete(id: number): Promise<calculos>{
     return this.storage.get(CALCULOS_KEY).then((clcls: calculos[])=>{
       if(!clcls || clcls.length === 0){
@@ -49,16 +46,5 @@ export class CalculoService {
     }
     return this.storage.set(CALCULOS_KEY, toKeep)
     })
-  }*/
-  add1(calculo: calculos){
-    return this.http.post(`${API_URL}/historico`, calculo, httpOptions)
-  }
-
-  getAll1(){
-    return this.http.get<calculos[]>(`${API_URL}/historico`, httpOptions)
-  }
-
-  delete1(id: string){
-    return this.http.delete(`${API_URL}/historico/${id}`, httpOptions)
   }
 }

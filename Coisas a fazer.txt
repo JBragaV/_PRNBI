@@ -1,0 +1,4 @@
+=> Ver sobre icon e splash
+=> Arrumar os dados na página histórico
+=> Verificar possíveis erros
+=> 

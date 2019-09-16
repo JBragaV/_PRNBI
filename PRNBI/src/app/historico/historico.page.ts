@@ -9,64 +9,65 @@ import { CalculoService } from '../service/calculo.service';
   templateUrl: './historico.page.html',
   styleUrls: ['./historico.page.scss'],
 })
-export class HistoricoPage implements OnInit {
+export class HistoricoPage {
 
-  desce = false
+  teste = "Nenhum Dado Registrado"
   calculos: calculos[]
+  msg: any
   constructor(private calculoService: CalculoService,
               private plt: Platform,
               private alertController: AlertController) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.plt.ready().then(()=>{
-      //this.listar()
-      //this.listarJson()
+      this.listar()
+      this.msg = setTimeout(()=>this.ListaVazia(), 100)
     })
   }
-/*
+
+  ListaVazia(){
+    if(this.calculos.length !== 0){
+      console.log("Cheguei")
+      document.getElementById("noRegistro").style.display = "none";
+    }else{
+      console.log("Fui expulos do if")
+      document.getElementById("noRegistro").style.display = "block";
+    }
+  }
   listar(){
     this.calculoService.getAll().then(clcls =>{
       this.calculos = clcls
     })
   }
-  listarJson(){
-    this.calculoService.getAll1().subscribe(clcls =>{
-      this.calculos = clcls
-    })
-  }
-
+  
   deletar(calculo: calculos){
     console.log(calculo)
     this.calculoService.delete(calculo.id).then(clcls => {
-      this.presentAlert()
       setTimeout(()=> this.listar(),100)
     })
   }
 
-  deletarJson(id: string){
-    console.log(id)
-    this.calculoService.delete1(id).subscribe(()=>{
-      this.presentAlert(),
-      error => console.log(error)
-    })
-    setTimeout(()=> this.listarJson(),100)
-  }
-  async presentAlert() {
+  async presentAlert(calculo: calculos) {
     const alert = await this.alertController.create({
-      header: 'Sucesso',
-      message: 'Os Dados foram apagados com sucesso!!!',
-      buttons: ['OK']
+      header: 'Apagar',
+      message: 'Tem certeza que deseja apagar esse registro?',
+      buttons: [
+        {
+          text: 'Sim',
+          handler: () => {
+            this.deletar(calculo)
+          }
+        },
+        {
+          text: 'Não',
+          handler: () => {
+            
+          }
+      }]
     });
-
     await alert.present();
   }
-  listar1(){
-    this.calculoService.getAll1().subscribe(
-      historico => this.calculos = historico,
-      error => console.log(error)
-    )
-  }
-  */
+ 
 
   dataHoje(){
     let data = new Date()

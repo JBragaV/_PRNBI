@@ -10,7 +10,7 @@
   </ion-header>
   
 <ion-content fullscreen class="ion-padding">
-    <ion-button href="tabs/historico" routerDirection="forward" size="large">Historico</ion-button>
+    <ion-button href="/historico" routerDirection="forward" size="large">Historico</ion-button>
     <form [formGroup] = formulario (submit)="add()">
       <!--div do calculo do combustível-->
       <div id="capitulo">
@@ -196,7 +196,7 @@
         <h1>Calculo de Peso de Decolagem</h1>
       <ion-item>
         <ion-label  class="form" position="floating">Peso máximo de decolagem(Kg)</ion-label>
-        <ion-input type="number" clear-input="true" (keyup)="pesoMaximoDecolagem = $event.target.value"  placeholder="Digite o peso máximo de decolagem" id="PesoBasDep"></ion-input>
+        <ion-input type="number" clear-input="true" (keyup)="pmd = $event.target.value"  placeholder="Digite o peso máximo de decolagem" id="PesoBasDep"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label class="form" position="floating">Peso Vazio Básico(Kg)</ion-label>
@@ -219,7 +219,7 @@
         <ion-input type="number" [value]="combMinp" formControlName="payLoad" disabled placeholder="Payload Máximo" id="payLoad" ></ion-input>
         <span *ngIf="payLoad" id="danger">Peso fora do padrão</span>
       </ion-item>
-      <ion-button [disabled] = "erroFuel" (click)="conc(pesoMaximoDecolagem, pesoVazioBasico, pesTripuPax)" shape="round"><ion-icon slot="start" name="airplane"></ion-icon>Enviar</ion-button>
+      <ion-button [disabled] = "erroFuel" (click)="conc(pmd, pesoVazioBasico, pesTripuPax)" shape="round"><ion-icon slot="start" name="airplane"></ion-icon>Calcular Peso</ion-button>
     </div>
     <!--Div do calculo do balanceamento-->
     <div id="capitulo" >
@@ -272,15 +272,15 @@
     </div>
     <span *ngIf="pesoMaximoDecolagem" id="danger"><p>Peso Máximo de Decolagem excedido</p></span>
     <span *ngIf="pesoMaximoPouso" id="danger"><p>Peso Máximo de pouso excedido</p></span>
-    <span *ngIf="cGd" id="danger"><p>Centro de gravidade na Decolagem está fora dos limites.</p></span>
-    <span *ngIf="cGp" id="danger"><p>Centro de gravidade no Pouso está fora dos limites</p></span>
-    <span *ngIf="cGd" id="danger"><p>Seu centro de gravidade é de {{centrogravidade}}m. CG Dianteiro = 2,049m e CG traseiro = 2.402m</p></span>
-    <span *ngIf="ok" id="danger"><p>O centro de gravidade está dentro do envelope</p></span>
-    <span *ngIf="ok" id="danger"><p>O centro de gravidade é {{centrogravidade}}m</p></span>
     <ion-button type="submit">Arquivar Calculo</ion-button><p></p>
     <ion-label position="floating">Centro de gravidade na decolagem</ion-label>
-    <ion-input  type="text" [value]="cgd" formControlName = "cgd" ></ion-input>
+    <ion-input id="cgd" type="text" [value]="cgd" formControlName = "cgd" ></ion-input>
+    <span *ngIf="cGd" id="danger"><p>Centro de gravidade na Decolagem está fora dos limites.</p></span>
+    <span *ngIf="cGd" id="danger"><p>CG Dianteiro = 2,049m e CG traseiro = 2.402m</p></span>
     <ion-label position="floating">Centro de gravidade no pouso</ion-label>
-    <ion-input  type="text" [value]="cgp" formControlName = "cgp" ></ion-input>
+    <ion-input id="cgp" type="text" [value]="cgp" formControlName = "cgp" ></ion-input>
+    <span *ngIf="cGp" id="danger"><p>Centro de gravidade no Pouso está fora dos limites</p></span>
+    <span *ngIf="cGp" id="danger"><p>CG Dianteiro = 2,049m e CG traseiro = 2.402m</p></span>
+    <span *ngIf="ok" id="danger"><p>O centro de gravidade está dentro do envelope</p></span>
   </form>
 </ion-content>

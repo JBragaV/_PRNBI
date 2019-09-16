@@ -34,35 +34,33 @@ export class PesoPage implements OnInit {
       cgp: [this.cgp],
       data: [this.hoje],
       expandir:[false],
-      id: [new Date()]
+      id: [Date.now()]
     })
-    
-
   }
-  data 
-   add(){
+
+  //Método para adicionar os dados do calculo no storage
+  add(){
     const novoCalculo = this.formulario.getRawValue() as calculos
     console.log(novoCalculo)
-    /*this.calculoService.add(novoCalculo).then(clcls =>{
+    this.calculoService.add(novoCalculo).then(() =>{
       this.presentAlert()
-    })*/
-    /*this.calculoService.add1(novoCalculo).subscribe(() => {
-      this.presentAlert(),
-      error => this.erroAlert()
-    })*/
-    //setTimeout(()=>location.reload(),3000)
-    //Pegar o click do alert para recarregar a página...
+    })
   }
 
-
+  //Metodo que cria um alert
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Sucesso',
       subHeader: 'Adicionado',
       message: 'Os Dados foram adicionados com sucesso!!!',
-      buttons: ['OK']
+      buttons: [
+          {
+          text: 'OK',
+          handler: () => {
+            location.reload()
+          }
+        }]
     });
-
     await alert.present();
   }
 
@@ -228,8 +226,8 @@ export class PesoPage implements OnInit {
   //Fim da função de combustível
 
   //Calculo do Peso de decolagem
-  conc(pesoMaximoDecolagem: string, pesoVazioBasico: string, pesTripuPax: string){
-    this.PesDispTot = (Number(pesoMaximoDecolagem.replace(",", ".")) - Number(pesoVazioBasico.replace(",", "."))).toFixed(2)
+  conc(pmd: string, pesoVazioBasico: string, pesTripuPax: string){
+    this.PesDispTot = (Number(pmd.replace(",", ".")) - Number(pesoVazioBasico.replace(",", "."))).toFixed(2)
     
     let temp = (this.PesDispTot - this.minReqKg) - Number(pesTripuPax.replace(",", "."))
     this.combMinp = temp.toFixed(2)
@@ -289,21 +287,38 @@ export class PesoPage implements OnInit {
       this.pesoMaximoPouso = false
       document.getElementById("pesPouso").style.color = "black"
     }
+
     if(Number(this.cgd) > 2.402 || Number(this.cgd) < 2.049){
       this.cGd = true
       this.ok = false
+      document.getElementById("cgd").style.backgroundColor = "red"
+      document.getElementById("cgd").style.color = "white"
     }else{
-        this.cGd = false
-        this.ok = true
+      this.cGd = false
+      this.ok = true
+      document.getElementById("cgd").style.backgroundColor = "white"
+      document.getElementById("cgd").style.color = "black"
+    }
+
+    if(Number(this.cgp) > 2.402 || Number(this.cgp) < 2.049){
+      this.cGp = true
+      this.ok = false
+      document.getElementById("cgp").style.backgroundColor = "red"
+      document.getElementById("cgp").style.color = "white"
+    }else{
+      this.cGp = false
+      this.ok = true
+      document.getElementById("cgp").style.backgroundColor = "white"
+      document.getElementById("cgp").style.color = "black"
     }
   }
   dataHoje(){
     let data = new Date()
     let dia
-    if((data.getDay()+1) > 10){
-      dia = data.getDay()+1
+    if((data.getDate()+1) > 10){
+      dia = data.getDate()
     }else{
-      dia = `0${data.getDay()+1}`
+      dia = `0${data.getDate()}`
     }
     let mes
     if((data.getMonth()+1) > 10){
