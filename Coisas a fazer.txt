@@ -1,4 +1,6 @@
 => Ver sobre icon e splash
 => Arrumar os dados na página histórico
 => Verificar possíveis erros
-=> 
+=> Terminar de implementar os check-lists normais
+=> Terminar de implementar os check-lists de emergência
+=> Procurar sobre sub-menus
