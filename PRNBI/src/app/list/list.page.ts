@@ -79,14 +79,36 @@ export class ListPage implements OnInit {
                           {objeto: "Pressão Óleo", acao: "Checar", checado: false, abrir: false, oleo: true},
                           {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
                           {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
+
+
+
   
   
   
   
   
   
-  private teste3 = []
+  
+  
+//para porra   
+  
+  private aposAcionamento = [{objeto: "Instrumentos do motor", acao: "ON", checado: false, abrir: false},
+                             {objeto: "Mistura", acao: "Ajustar", checado: false, abrir: false},
+                             {objeto: "Master", acao: "ON", checado: false, abrir: false},
+                             {objeto: "Rádios", acao: "ON", checado: false, abrir: false},
+                             {objeto: "Seletora esquerda", acao: "60s em X-FEED, após ON", checado: false, abrir: false},
+                             {objeto: "Seletora direita", acao: "60s em X-FEED, após ON", checado: false, abrir: false},
+                             {objeto: "Tranponder", acao: "STBY/2000", checado: false, abrir: false},]
+  
+  
+  //para de novo
   private teste2 = []
+  
+  //para que parei
   private teste1 = []
 
 }
+
+/* 
+
+*/
