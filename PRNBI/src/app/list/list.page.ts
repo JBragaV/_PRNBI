@@ -67,6 +67,8 @@ export class ListPage implements OnInit {
                            {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
                            {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
                            
+  
+  
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   //oleo: condição para exibição da mensagem do oleo no card
@@ -80,8 +82,12 @@ export class ListPage implements OnInit {
                           {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
                           {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
   
-//para porra   
-  
+
+
+
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card  
   private aposAcionamento = [{objeto: "Instrumentos do motor", acao: "ON", checado: false, abrir: false},
                              {objeto: "Mistura", acao: "Ajustar", checado: false, abrir: false},
                              {objeto: "Master", acao: "ON", checado: false, abrir: false},
@@ -91,7 +97,11 @@ export class ListPage implements OnInit {
                              {objeto: "Tranponder", acao: "STBY/2000", checado: false, abrir: false},]
   
   
-  //para de novo
+  
+
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private taxi = [{objeto: "Autorização de taxi", acao: "Obter", checado: false, abrir: false},
                     {objeto: "Luz de navegação", acao: "Como requerida", checado: false, abrir: false},
                     {objeto: "Luzes auxiliares", acao: "Como requerida", checado: false, abrir: false},
@@ -105,8 +115,16 @@ export class ListPage implements OnInit {
                     {objeto: "Turn and Bank", acao: "Verificar", checado: false, abrir: false},
                     {objeto: "X-FEED", acao: "Checar ambas por 30s", checado: false, abrir: false}]
   
-  //para que parei
-  private teste1 = []
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private ckl500 = [{objeto: "Instrumentos do motor", acao: "Faixa Verde", checado: false, abrir: false},
+                    {objeto: "Bombas elétricas", acao: "OFF", checado: false, abrir: false},
+                    {objeto: "Farol de pouso", acao: "OFF", checado: false, abrir: false},
+                    {objeto: "Flaps", acao: "Recolhidos", checado: false, abrir: false},
+                    {objeto: "Trem de pouso", acao: "Recolhidos e travados", checado: false, abrir: false},
+                    {objeto: "Potência", acao: "24 Pol", checado: false, abrir: false},
+                    {objeto: "Passo", acao: "2400 RPM", checado: false, abrir: false},
+                   ]
 
 }
 
