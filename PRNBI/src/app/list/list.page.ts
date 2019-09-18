@@ -79,16 +79,6 @@ export class ListPage implements OnInit {
                           {objeto: "Pressão Óleo", acao: "Checar", checado: false, abrir: false, oleo: true},
                           {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
                           {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
-
-
-
-  
-  
-  
-  
-  
-  
-  
   
 //para porra   
   
@@ -102,7 +92,18 @@ export class ListPage implements OnInit {
   
   
   //para de novo
-  private teste2 = []
+  private taxi = [{objeto: "Autorização de taxi", acao: "Obter", checado: false, abrir: false},
+                    {objeto: "Luz de navegação", acao: "Como requerida", checado: false, abrir: false},
+                    {objeto: "Luzes auxiliares", acao: "Como requerida", checado: false, abrir: false},
+                    {objeto: "Briefing de taxi", acao: "Realizar", checado: false, abrir: false},
+                    {objeto: "Área de taxi", acao: "Livre", checado: false, abrir: false},
+                    {objeto: "Freios", acao: "Soltar", checado: false, abrir: false},
+                    {objeto: "Manetes de potência", acao: "Avançar lentamente", checado: false, abrir: false},
+                    {objeto: "Manetes de hélice", acao: "Max RPM", checado: false, abrir: false},
+                    {objeto: "Freios", acao: "Checar operacional", checado: false, abrir: false},
+                    {objeto: "Comando direcional", acao: "Verificar", checado: false, abrir: false},
+                    {objeto: "Turn and Bank", acao: "Verificar", checado: false, abrir: false},
+                    {objeto: "X-FEED", acao: "Checar ambas por 30s", checado: false, abrir: false}]
   
   //para que parei
   private teste1 = []
