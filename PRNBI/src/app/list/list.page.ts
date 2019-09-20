@@ -123,11 +123,24 @@ export class ListPage implements OnInit {
                     {objeto: "Flaps", acao: "Recolhidos", checado: false, abrir: false},
                     {objeto: "Trem de pouso", acao: "Recolhidos e travados", checado: false, abrir: false},
                     {objeto: "Potência", acao: "24 Pol", checado: false, abrir: false},
-                    {objeto: "Passo", acao: "2400 RPM", checado: false, abrir: false},
-                   ]
+                    {objeto: "Passo", acao: "2400 RPM", checado: false, abrir: false}]
+  
 
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private app = [{objeto: "Mistura", acao: "Rica", checado: false, abrir: false},
+                 {objeto: "Manete de hélice", acao: "Max RPM", checado: false, abrir: false},
+                 {objeto: "Bombas de Combustível", acao: "ON", checado: false, abrir: false},
+                 {objeto: "Farol de Pouso", acao: "ON", checado: false, abrir: false},
+                 {objeto: "Trem de pouso", acao: "Three Green light", checado: false, abrir: false},
+                 {objeto: "Pista", acao: "Livre", checado: false, abrir: false}]
 }
 
 /* 
-
+li>: <strong></strong></li>
+          <li>: <strong></strong></li>
+          <li>: <strong class="maiusculo">on</strong></li>
+          <li>: <strong class="maiusculo">on</strong></li>
+          <li>: <strong></strong></li>
+          <li>: <strong></strong></li>
 */
