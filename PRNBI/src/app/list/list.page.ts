@@ -10,26 +10,36 @@ export class ListPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  private preFlight = [{objeto: "Flight plan", acao: "Performed", checado: false, abrir: false},
+  {objeto: "Weight and Balance", acao: "Performed", checado: false, abrir: false},
+  {objeto: "Performance", acao: "Investigated", checado: false, abrir: false},
+                      ]
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private inspecaoInterna = [{objeto: "Manche", acao: "Destravado", checado: false, abrir: false},
-                            {objeto: "Freio de estacionamento", acao: "Aplicado", checado: false, abrir: false},
-                            {objeto: "Interruptores", acao: "OFF", checado: false, abrir: false},
-                            {objeto: "Magnetos", acao: "OFF", checado: false, abrir: false},
-                            {objeto: "Equipamentos Eletrônicos", acao: "OFF", checado: false},
-                            {objeto: "Mistura", acao: "Cortada", checado: false, abrir: false},
+  private inspecaoInterna = [{objeto: "Paperwork ", acao: "Check on Board", checado: false, abrir: false},
+                            {objeto: "Fire Extinguisher", acao: "Available", checado: false, abrir: false},
+                            {objeto: "Windshild ", acao: "Checked and Clean", checado: false, abrir: false},
+                            {objeto: "Seats and Seats belts", acao: "Cheked", checado: false, abrir: false},
+                            {objeto: "Controls Loks", acao: "Removed", checado: false},
+                            {objeto: "Landing Gear control", acao: "Down", checado: false, abrir: false},
+                            {objeto: "Avionics", acao: "OFF", checado: false, abrir: false},
                             {objeto: "Master", acao: "ON", checado: false, abrir: false},
-                            {objeto: "Liquidômetro", acao: "Verificar Quantidade", checado: false, abrir: false},
-                            {objeto: "Trem de Pouso", acao: "Verificar lights", checado: false, abrir: false},
+                            {objeto: "Landing Gear Lights", acao: "Three Green Light", checado: false, abrir: false},
+                            {objeto: "Fuel Quantity", acao: "Check", checado: false, abrir: false},
                             {objeto: "Master", acao: "OFF", checado: false, abrir: false},
-                            {objeto: "Cowl Flap", acao: "Abertos", checado: false, abrir: false},
-                            {objeto: "Comandos de Voo", acao: "Verificar Operação", checado: false, abrir: false},
-                            {objeto: "Flap", acao: "Verificar Operação e recolher", checado: false, abrir: false},
-                            {objeto: "Compensadores", acao: "Verificar operação e neutro", checado: false, abrir: false},
-                            {objeto: "Sistema Pito Estático", acao: "Drenar", checado: false, abrir: false},
-                            {objeto: "Cintos", acao: "Verificar condições e travamento", checado: false, abrir: false},
-                            {objeto: "Janelas", acao: "Verificar limpeza", checado: false, abrir: false},
-                            {objeto: "Documentos", acao: "Verificar à bordo", checado: false, abrir: false}]
+                            {objeto: "Fuel Selector", acao: "ON", checado: false, abrir: false},
+                            {objeto: "Trims", acao: "Set Neutral", checado: false, abrir: false},
+                            {objeto: "Flap", acao: "Check operation then Down", checado: false, abrir: false},
+                            {objeto: "Cowl Flap", acao: "Open", checado: false, abrir: false},
+                            {objeto: "Alternative Air", acao: "Close", checado: false, abrir: false},
+                            {objeto: "Mixture Controls", acao: "Cuttoff", checado: false, abrir: false},
+                            {objeto: "Propeller Controls", acao: "Full Forward", checado: false, abrir: false},
+                            {objeto: "Throttle Controls", acao: "Idle", checado: false, abrir: false},
+                            {objeto: "Magnetos ", acao: "OFF", checado: false, abrir: false},
+                            {objeto: "Drain Pitot System", acao: "Performed", checado: false, abrir: false},
+                            {objeto: "Crossfeed", acao: "Drain", checado: false, abrir: false},
+                            {objeto: "Circuit Brakes", acao: "All In", checado: false, abrir: false},
+                          ]
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
