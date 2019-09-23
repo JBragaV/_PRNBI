@@ -10,10 +10,13 @@ export class ListPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private preFlight = [{objeto: "Flight plan", acao: "Performed", checado: false, abrir: false},
   {objeto: "Weight and Balance", acao: "Performed", checado: false, abrir: false},
-  {objeto: "Performance", acao: "Investigated", checado: false, abrir: false},
-                      ]
+  {objeto: "Performance", acao: "Investigated", checado: false, abrir: false}]
+
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private inspecaoInterna = [{objeto: "Paperwork ", acao: "Check on Board", checado: false, abrir: false},
@@ -38,119 +41,178 @@ export class ListPage implements OnInit {
                             {objeto: "Magnetos ", acao: "OFF", checado: false, abrir: false},
                             {objeto: "Drain Pitot System", acao: "Performed", checado: false, abrir: false},
                             {objeto: "Crossfeed", acao: "Drain", checado: false, abrir: false},
-                            {objeto: "Circuit Brakes", acao: "All In", checado: false, abrir: false},
-                          ]
+                            {objeto: "Circuit Brakes", acao: "All In", checado: false, abrir: false}]
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private checkAcionamento = [{objeto: "Inspeção Pré-voo", acao: "Completa", checado: false, abrir: false},
-                              {objeto: "Frio de estacionamento", acao: "Aplicado", checado: false, abrir: false},
-                              {objeto: "Calços", acao: "Retirados", checado: false, abrir: false},
+  private checkAcionamento = [{objeto: "Preflight Inspection", acao: "Completed", checado: false, abrir: false},
+                              {objeto: "Brakes", acao: "Hold", checado: false, abrir: false},
+                              {objeto: "Wheel Chock", acao: "Removed", checado: false, abrir: false},
                               {objeto: "Flap", acao: "UP", checado: false, abrir: false},
-                              {objeto: "Banco e cinto de segurança", acao: "Ajustados e travados", checado: false, abrir: false},
-                              {objeto: "Porta", acao: "Fechada e tavada", checado: false, abrir: false},
-                              {objeto: "CBs", acao: "Verificar armados", checado: false, abrir: false},
-                              {objeto: "Bateria", acao: "ON", checado: false, abrir: false},
+                              {objeto: "Door ", acao: "Close", checado: false, abrir: false},
+                              {objeto: "Seat/Seat Belts", acao: "Adjusted", checado: false, abrir: false},
                               {objeto: "Master", acao: "ON", checado: false, abrir: false},
-                              {objeto: "Rádio", acao: "ON", checado: false, abrir: false},
-                              {objeto: "Autorização", acao: "Obter", checado: false, abrir: false},
-                              {objeto: "Rádio", acao: "OFF", checado: false, abrir: false},
-                              {objeto: "Master", acao: "OFF", checado: false, abrir: false},
-                              {objeto: "Seletora de Combustível", acao: "Alavancas em ON", checado: false, abrir: false},
-                              {objeto: "Cowl Flap", acao: "Abertos", checado: false, abrir: false},
-                              {objeto: "Ar alternado", acao: "Fechada", checado: false, abrir: false},
-                              {objeto: "Mistura", acao: "Rica", checado: false, abrir: false},
-                              {objeto: "Manetes de Hélice (passo)", acao: "Máx RPM", checado: false, abrir: false},
-                              {objeto: "Manete de potência", acao: "Abrir +/- 1,5cm", checado: false, abrir: false},
+                              {objeto: "Avionics", acao: "ON", checado: false, abrir: false},
+                              {objeto: "Radio", acao: "ON", checado: false, abrir: false},
+                              {objeto: "Clearence", acao: "Obtain", checado: false, abrir: false},
+                              {objeto: "Radio", acao: "OFF", checado: false, abrir: false},
+                              {objeto: "Avionics", acao: "OFF", checado: false, abrir: false},
+                              {objeto: "Fuel Selectors", acao: "Both ON", checado: false, abrir: false},
+                              {objeto: "Cowl Flap", acao: "Open", checado: false, abrir: false},
+                              {objeto: "Alternative Air", acao: "Closed", checado: false, abrir: false},
+                              {objeto: "Mixture", acao: "Full Forward", checado: false, abrir: false},
+                              {objeto: "Propellers Control", acao: "Full Forward", checado: false, abrir: false},
+                              {objeto: "Throttle", acao: "Open ½ inch", checado: false, abrir: false},
                               {objeto: "Beacon", acao: "ON", checado: false, abrir: false}]
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   //oleo: condição para exibição da mensagem do oleo no card
   private motorEsquerdo = [{objeto: "Magnetos", acao: "ON", checado: false, abrir: false, oleo: false},
-                           {objeto: "Bomba elétrica", acao: "ON 3s, após OFF", checado: false, abrir: false, oleo: false},
-                           {objeto: "Mistura", acao: "Cortar", checado: false, abrir: false, oleo: false},
-                           {objeto: "Área da hélice", acao: "Livre", checado: false, abrir: false, oleo: false},
+                           {objeto: "Fuel Pump", acao: "ON for 3 Seconds then OFF", checado: false, abrir: false, oleo: false},
+                           {objeto: "Mixture", acao: "Cutoff", checado: false, abrir: false, oleo: false},
+                           {objeto: "Propeller Area", acao: "Clear", checado: false, abrir: false, oleo: false},
                            {objeto: "Starter", acao: "Engage", checado: false, abrir: false, oleo: false},
-                           {objeto: "Mistura", acao: "Avançar após motor funcionar", checado: false, abrir: false, oleo: false},
-                           {objeto: "Pressão Óleo", acao: "Checar", checado: false, abrir: false, oleo: true},
-                           {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
-                           {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
+                           {objeto: "Mixture", acao: "Advanced as Engine Starts", checado: false, abrir: false, oleo: false},
+                           {objeto: "Oil Pressure", acao: "Check", checado: false, abrir: false, oleo: true},
+                           {objeto: "Throttle", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
+                           {objeto: "Alternator", acao: "ON", checado: false, abrir: false, oleo: false}]
                            
-  
-  
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   //oleo: condição para exibição da mensagem do oleo no card
   private motorDireito = [{objeto: "Magnetos", acao: "ON", checado: false, abrir: false},
-                          {objeto: "Bomba elétrica", acao: "ON 3s, após OFF", checado: false, abrir: false, oleo: false},
-                          {objeto: "Mistura", acao: "Cortar", checado: false, abrir: false, oleo: false},
-                          {objeto: "Área da hélice", acao: "Livre", checado: false, abrir: false, oleo: false},
+                          {objeto: "Fuel Pump", acao: "ON for 3 Seconds then OFF", checado: false, abrir: false, oleo: false},
+                          {objeto: "Mixture", acao: "Cutoff", checado: false, abrir: false, oleo: false},
+                          {objeto: "Propeller Area", acao: "Clear", checado: false, abrir: false, oleo: false},
                           {objeto: "Starter", acao: "Engage", checado: false, abrir: false, oleo: false},
-                          {objeto: "Mistura", acao: "Avançar após motor funcionar", checado: false, abrir: false, oleo: false},
-                          {objeto: "Pressão Óleo", acao: "Checar", checado: false, abrir: false, oleo: true},
-                          {objeto: "RPM", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
-                          {objeto: "Alternador", acao: "ON", checado: false, abrir: false, oleo: false}]
+                          {objeto: "Mixture", acao: "Advanced as Engine Starts", checado: false, abrir: false, oleo: false},
+                          {objeto: "Oil Pressure", acao: "Check", checado: false, abrir: false, oleo: true},
+                          {objeto: "Throttle", acao: "1000 RPM", checado: false, abrir: false, oleo: false},
+                          {objeto: "Alternator", acao: "ON", checado: false, abrir: false, oleo: false}]
   
-
-
-
-
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card  
-  private aposAcionamento = [{objeto: "Instrumentos do motor", acao: "ON", checado: false, abrir: false},
-                             {objeto: "Mistura", acao: "Ajustar", checado: false, abrir: false},
-                             {objeto: "Master", acao: "ON", checado: false, abrir: false},
-                             {objeto: "Rádios", acao: "ON", checado: false, abrir: false},
-                             {objeto: "Seletora esquerda", acao: "60s em X-FEED, após ON", checado: false, abrir: false},
-                             {objeto: "Seletora direita", acao: "60s em X-FEED, após ON", checado: false, abrir: false},
-                             {objeto: "Tranponder", acao: "STBY/2000", checado: false, abrir: false},]
-  
-  
-  
-
-
-  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
-  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private taxi = [{objeto: "Autorização de taxi", acao: "Obter", checado: false, abrir: false},
-                    {objeto: "Luz de navegação", acao: "Como requerida", checado: false, abrir: false},
-                    {objeto: "Luzes auxiliares", acao: "Como requerida", checado: false, abrir: false},
-                    {objeto: "Briefing de taxi", acao: "Realizar", checado: false, abrir: false},
-                    {objeto: "Área de taxi", acao: "Livre", checado: false, abrir: false},
-                    {objeto: "Freios", acao: "Soltar", checado: false, abrir: false},
-                    {objeto: "Manetes de potência", acao: "Avançar lentamente", checado: false, abrir: false},
-                    {objeto: "Manetes de hélice", acao: "Max RPM", checado: false, abrir: false},
-                    {objeto: "Freios", acao: "Checar operacional", checado: false, abrir: false},
-                    {objeto: "Comando direcional", acao: "Verificar", checado: false, abrir: false},
-                    {objeto: "Turn and Bank", acao: "Verificar", checado: false, abrir: false},
-                    {objeto: "X-FEED", acao: "Checar ambas por 30s", checado: false, abrir: false}]
+  private aposAcionamento = [{objeto: "Engine Instruments", acao: "Check", checado: false, abrir: false},
+                             {objeto: "Mixture", acao: "Lean ½ Inch", checado: false, abrir: false},
+                             {objeto: "Avionics", acao: "ON", checado: false, abrir: false},
+                             {objeto: "Radios", acao: "ON", checado: false, abrir: false},
+                             {objeto: "Left Fuel Selector", acao: "60s in X-feed then ON", checado: false, abrir: false},
+                             {objeto: "Right Fuel Selector", acao: "60s in X-FEED then ON", checado: false, abrir: false},
+                             {objeto: "Tranponder", acao: "STBY/2000", checado: false, abrir: false}]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private ckl500 = [{objeto: "Instrumentos do motor", acao: "Faixa Verde", checado: false, abrir: false},
-                    {objeto: "Bombas elétricas", acao: "OFF", checado: false, abrir: false},
-                    {objeto: "Farol de pouso", acao: "OFF", checado: false, abrir: false},
-                    {objeto: "Flaps", acao: "Recolhidos", checado: false, abrir: false},
-                    {objeto: "Trem de pouso", acao: "Recolhidos e travados", checado: false, abrir: false},
-                    {objeto: "Potência", acao: "24 Pol", checado: false, abrir: false},
-                    {objeto: "Passo", acao: "2400 RPM", checado: false, abrir: false}]
+  private taxi = [{objeto: "Clearance", acao: "Obtain", checado: false, abrir: false},
+                    {objeto: "Navegation Lights", acao: "As required", checado: false, abrir: false},
+                    {objeto: "Auxiliar Lights", acao: "As required", checado: false, abrir: false},
+                    {objeto: "Taxi and Departure Brief", acao: "Released", checado: false, abrir: false},
+                    {objeto: "Taxi area", acao: "Clear", checado: false, abrir: false},
+                    {objeto: "Breaks", acao: "Released", checado: false, abrir: false},
+                    {objeto: "Trottles Control", acao: "Max 1200 RPM", checado: false, abrir: false},
+                    {objeto: "Breaks", acao: "Check", checado: false, abrir: false},
+                    {objeto: "Controle Nose well", acao: "Check", checado: false, abrir: false},
+                    {objeto: "Turn Bank", acao: "Check", checado: false, abrir: false}]
   
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private before = [{objeto: "Breaks", acao: "Applied", checado: false, abrir: false, msg: ""},
+                    {objeto: "Take off / Emergenci Brief", acao: "Completed", checado: false, abrir: false, msg: ""},
+                    {objeto: "Throttle Controls", acao: "1000 RPM", checado: false, abrir: false, msg: ""},
+                    {objeto: "Left Alternator", acao: "OFF/Check Light/ON", checado: false, abrir: false, msg: ""},
+                    {objeto: "Right Alternator", acao: "OFF/Check Light/ON", checado: false, abrir: false, msg: ""},
+                    {objeto: "Flight Instruments", acao: "Check/ Sets", checado: false, abrir: false, msg: ""},
+                    {objeto: "Radios / Nav Aids", acao: "Sets", checado: false, abrir: false, msg: ""},
+                    {objeto: "Flight Controls", acao: "Check", checado: false, abrir: false, msg: ""},
+                    {objeto: "Ruder Trim", acao: "Neutral", checado: false, abrir: false, msg: ""},
+                    {objeto: "Elevator Trim", acao: "Set for take OFF", checado: false, abrir: false, msg: ""},
+                    {objeto: "Flaps", acao: "Set for take OFF", checado: false, abrir: false, msg: ""},
+                    {objeto: "Cowl Flaps", acao: "Open", checado: false, abrir: false, msg: ""},
+                    {objeto: "Alternative air", acao: "Closed", checado: false, abrir: false, msg: ""},
+                    {objeto: "Mixture", acao: "Rich", checado: false, abrir: false, msg: ""},
+                    {objeto: "Propellers Controls", acao: "Full Forward", checado: false, abrir: false, msg: ""},
+                    {objeto: "Throttle Controls", acao: "2000 RPM", checado: false, abrir: false, msg: ""},
+                    {objeto: "Mixture", acao: "Check", checado: false, abrir: false, msg: ""},
+                    {objeto: "Feater", acao: "Check", checado: false, abrir: false, msg: "The RPM should be drop 1000 RPM in 1 – 3 seconds"},
+                    {objeto: "Magnetos", acao: "Check", checado: false, abrir: false, msg: "Normal drop 100 RPM. Maximum drop 175 RPM, Max diferencial drop 50 RPM"},
+                    {objeto: "Throttles Controls", acao: "2300 RPM", checado: false, abrir: false, msg: ""},
+                    {objeto: "Governator", acao: "Check", checado: false, abrir: false, msg: ""},
+                    {objeto: "Throttles Controls", acao: "Idle", checado: false, abrir: false, msg: "Between 800 RPM/ 1000 RPM"},
+                    {objeto: "Misture", acao: "Lean ½ Inch", checado: false, abrir: false, msg: ""},
+                    {objeto: "Vacun Pumps", acao: "Check operative", checado: false, abrir: false, msg: ""}]
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private app = [{objeto: "Mistura", acao: "Rica", checado: false, abrir: false},
-                 {objeto: "Manete de hélice", acao: "Max RPM", checado: false, abrir: false},
-                 {objeto: "Bombas de Combustível", acao: "ON", checado: false, abrir: false},
-                 {objeto: "Farol de Pouso", acao: "ON", checado: false, abrir: false},
-                 {objeto: "Trem de pouso", acao: "Three Green light", checado: false, abrir: false},
-                 {objeto: "Pista", acao: "Livre", checado: false, abrir: false}]
+  private ClrTkOff = [{objeto: "Seat Belts / Doors", acao: "Fasten / Closed", checado: false, abrir: false, msg: ""},
+  {objeto: "Passenger", acao: "Advised / Speech", checado: false, abrir: false, msg: ""},
+  {objeto: "Fuel Sector Valve", acao: "Open", checado: false, abrir: false, msg: ""},
+  {objeto: "Mixture", acao: "Rich", checado: false, abrir: false, msg: ""},
+  {objeto: "Propeller Control", acao: "Full Forward", checado: false, abrir: false, msg: ""},
+  {objeto: "Engine Instruments", acao: "Check", checado: false, abrir: false, msg: ""},
+  {objeto: "Fuel Pumps", acao: "ON", checado: false, abrir: false, msg: ""},
+  {objeto: "Magnetos", acao: "ON", checado: false, abrir: false, msg: ""},
+  {objeto: "Landing Light", acao: "ON", checado: false, abrir: false, msg: ""}]
+  
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private ckl500 = [{objeto: "Gear", acao: "Up No lights", checado: false, abrir: false},
+                    {objeto: "Flaps", acao: "UP", checado: false, abrir: false},
+                    {objeto: "Throttle", acao: "25 Pol", checado: false, abrir: false},
+                    {objeto: "Propeller Control", acao: "2500 RPM", checado: false, abrir: false},
+                    {objeto: "Mixture", acao: "Set", checado: false, abrir: false},
+                    {objeto: "Engine Instruments", acao: "Check", checado: false, abrir: false},
+                    {objeto: "Landing Light", acao: "OFF", checado: false, abrir: false},
+                    {objeto: "Auxiliar Lights", acao: "OFF", checado: false, abrir: false}]
+  
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private cruise = [{objeto: "Throttle", acao: "Set", checado: false, abrir: false, msg: "Between 19 Pol / 22 Pol"},
+  {objeto: "Propeller Control", acao: "Set", checado: false, abrir: false, msg: "2400 RPM"},
+  {objeto: "Fuel Pump", acao: "OFF", checado: false, abrir: false, msg: ""},
+  {objeto: "Mixture", acao: "Check", checado: false, abrir: false, msg: ""},
+  {objeto: "Engine Instruments", acao: "Check", checado: false, abrir: false, msg: ""},
+  {objeto: "Pitot Heat", acao: "As required", checado: false, abrir: false, msg: ""},
+  {objeto: "Cowl Flaps", acao: "As required", checado: false, abrir: false, msg: ""}]
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private decAndApp = [{objeto: "Descend and Approach Briefing", acao: "Completed", checado: false, abrir: false, msg: ""},
+  {objeto: "Altimeter/Radio/Avionics", acao: "Set", checado: false, abrir: false, msg: ""},
+  {objeto: "Seats and Seatbelts", acao: "Adjusted and Fastened", checado: false, abrir: false, msg: ""},
+  {objeto: "Cowl Flaps", acao: "As required", checado: false, abrir: false, msg: ""},
+  {objeto: "Mixture", acao: "Set", checado: false, abrir: false, msg: ""},
+  {objeto: "Throttle", acao: "Set", checado: false, abrir: false, msg: ""},
+  {objeto: "Propeller Control", acao: "Set", checado: false, abrir: false, msg: ""}]
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private app = [{objeto: "Fuel Selectors", acao: "Both ON", checado: false, abrir: false},
+                 {objeto: "Mistura", acao: "Rich", checado: false, abrir: false},
+                 {objeto: "Propeller Control", acao: "Full Forward", checado: false, abrir: false},
+                 {objeto: "Gear", acao: "Down and Locked", checado: false, abrir: false},
+                 {objeto: "Fuel Pumps", acao: "ON", checado: false, abrir: false},
+                 {objeto: "Landing Lights", acao: "ON", checado: false, abrir: false},
+                 {objeto: "Auxiliar Lights", acao: "ON", checado: false, abrir: false}]
+
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private aftLnd = [{objeto: "Flaps", acao: "UP", checado: false, abrir: false},
+  {objeto: "Mixture", acao: "Lean ½ inch", checado: false, abrir: false},
+  {objeto: "Fuel Pump", acao: "OFF", checado: false, abrir: false},
+  {objeto: "Transponder", acao: "STBY", checado: false, abrir: false},
+  {objeto: "Exterior Lights", acao: "As required", checado: false, abrir: false},
+  {objeto: "Pitot Heat", acao: "OFF", checado: false, abrir: false}]
+  
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private shutdown = [{objeto: "Break", acao: "Set", checado: false, abrir: false},
+  {objeto: "Eletrical Equipament", acao: "OFF", checado: false, abrir: false},
+  {objeto: "Avionics", acao: "OFF", checado: false, abrir: false},
+  {objeto: "Throttle", acao: "1000 RPM", checado: false, abrir: false},
+  {objeto: "Mixture", acao: "Cutoff", checado: false, abrir: false}]
+  
 }
 
 /* 
-li>: <strong></strong></li>
-          <li>: <strong></strong></li>
-          <li>: <strong class="maiusculo">on</strong></li>
-          <li>: <strong class="maiusculo">on</strong></li>
-          <li>: <strong></strong></li>
-          <li>: <strong></strong></li>
+
 */
