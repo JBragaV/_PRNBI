@@ -404,6 +404,33 @@
       </ion-col>
     </ion-row>
   </div>
+  <div *ngIf="emergencia">
+  <ion-list>
+    <ion-item-divider class="ion-text-center" color="primary">
+      <ion-label>
+        Emergencia
+      </ion-label>
+    </ion-item-divider> 
+  </ion-list>
+  <ion-row *ngFor="let cl of preFlight">
+    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding ion-align-self-stretch">
+      <div class="absoluta">
+        <ion-button (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-align-self-stretch">
+        <ion-card [disabled]="cl.checado">
+      <ion-card-header (click)="cl.abrir=!cl.abrir">
+        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content *ngIf="cl.abrir">
+        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+      </ion-card-content>
+    </ion-card>
+    </ion-col>
+  </ion-row>  
+  </div>
 </ion-content>
 
 
