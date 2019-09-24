@@ -11,6 +11,21 @@ export class ListPage implements OnInit {
 
   ngOnInit() {}
 
+  normal = false;
+  emergencia = false;
+
+  checkList( event ){
+    console.log(event.detail.value)
+    let parametro = event.detail.value
+    if(parametro == "normal"){
+      this.normal = true;
+      this.emergencia = false;
+    }else{
+      this.normal = false;
+      this.emergencia = true;
+    }
+  }
+
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private preFlight = [{objeto: "Flight plan", acao: "Performed", checado: false, abrir: false},

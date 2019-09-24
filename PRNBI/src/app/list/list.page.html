@@ -9,384 +9,411 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <!-- Item Dividers in a List -->
+  <ion-grid>
+    <ion-row>
+      <ion-col class="normal">Normal</ion-col>
+      <ion-col class="emergencia">Emergência</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-segment (ionChange)="checkList($event)">
+      <ion-segment-button value="normal">
+        <ion-label>Normal</ion-label>
+      </ion-segment-button>
+      <ion-segment-button  value="emergencia">
+        <ion-label>Emergência</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  <div *ngIf="normal">
   <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Pre-Flight
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row *ngFor="let cl of preFlight">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding ion-align-self-stretch">
-      <div class="absoluta">
-        <ion-button (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Pre-Flight
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row *ngFor="let cl of preFlight">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding ion-align-self-stretch">
+        <div class="absoluta">
+          <ion-button (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+          </div>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-stretch">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Inspeção Interna
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row *ngFor="let cl of inspecaoInterna">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding ion-align-self-stretch">
+        <div class="absoluta">
+          <ion-button (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+          </div>
+      </ion-col>
+      <ion-col class="ion-no-padding ion-align-self-stretch">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider color="primary">
+        <ion-label>
+          Check de Acionamento
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row *ngFor="let cl of checkAcionamento" align-items: flex-start>
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
         </div>
-    </ion-col>
-    <ion-col class="ion-no-padding ion-align-self-stretch">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Inspeção Interna
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row *ngFor="let cl of inspecaoInterna">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding ion-align-self-stretch">
-      <div class="absoluta">
-        <ion-button (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Acionamento Motor Esquerdo
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of motorEsquerdo">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
         </div>
-    </ion-col>
-    <ion-col class="ion-no-padding ion-align-self-stretch">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider color="primary">
-      <ion-label>
-        Check de Acionamento
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row *ngFor="let cl of checkAcionamento" align-items: flex-start>
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Acionamento Motor Esquerdo
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of motorEsquerdo">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <h3 class="testeFundo" *ngIf="cl.oleo">Se não tiver indicação de pressão em 30s, cortar o motor</h3>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Acionamento Motor Direito
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of motorDireito">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <h3 class="testeFundo" *ngIf="cl.oleo">Se não tiver indicação de pressão em 30s, cortar o motor</h3>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Após o Acionamento
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of aposAcionamento">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Taxi
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of taxi">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Before Take Off
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of before">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <h3 class="testeFundo" *ngIf="cl.msg.length > 0">{{ cl.msg }}</h3>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Cleared Take Off
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of ClrTkOff">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <h3 class="testeFundo" *ngIf="cl.msg.length > 0">{{ cl.msg }}</h3>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Checklist de 500 ft
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of ckl500">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Crusie
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of cruise">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Deceand and Approach
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of decAndApp">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Beafore Landing (Final)
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of app">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        After Landing
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of aftLnd">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
-  <ion-list>
-    <ion-item-divider class="ion-text-center" color="primary">
-      <ion-label>
-        Shutdown
-      </ion-label>
-    </ion-item-divider> 
-  </ion-list>
-  <ion-row class="testedostestes" *ngFor="let cl of shutdown">
-    <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
-      <div class="absoluta">
-        <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
-      </div>
-    </ion-col>
-    <ion-col class="ion-no-padding">
-        <ion-card [disabled]="cl.checado">
-      <ion-card-header (click)="cl.abrir=!cl.abrir">
-        <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content *ngIf="cl.abrir">
-        <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
-        <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
-      </ion-card-content>
-    </ion-card>
-    </ion-col>
-  </ion-row>  
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <h3 class="testeFundo" *ngIf="cl.oleo">Se não tiver indicação de pressão em 30s, cortar o motor</h3>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Acionamento Motor Direito
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of motorDireito">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <h3 class="testeFundo" *ngIf="cl.oleo">Se não tiver indicação de pressão em 30s, cortar o motor</h3>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Após o Acionamento
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of aposAcionamento">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Taxi
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of taxi">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Before Take Off
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of before">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <h3 class="testeFundo" *ngIf="cl.msg.length > 0">{{ cl.msg }}</h3>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Cleared Take Off
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of ClrTkOff">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <h3 class="testeFundo" *ngIf="cl.msg.length > 0">{{ cl.msg }}</h3>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Checklist de 500 ft
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of ckl500">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Crusie
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of cruise">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Deceand and Approach
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of decAndApp">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Beafore Landing (Final)
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of app">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          After Landing
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of aftLnd">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>  
+    <ion-list>
+      <ion-item-divider class="ion-text-center" color="primary">
+        <ion-label>
+          Shutdown
+        </ion-label>
+      </ion-item-divider> 
+    </ion-list>
+    <ion-row class="testedostestes" *ngFor="let cl of shutdown">
+      <ion-col size="1" *ngIf="cl.checado" class="ion-no-padding">
+        <div class="absoluta">
+          <ion-button  (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" slot="start" color="danger">X</ion-button>
+        </div>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+          <ion-card [disabled]="cl.checado">
+        <ion-card-header (click)="cl.abrir=!cl.abrir">
+          <ion-card-subtitle>{{cl.objeto}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content *ngIf="cl.abrir">
+          <p class="dentro"><strong>{{cl.acao}}</strong></p><p></p>
+          <ion-button Expand="block" (click)="cl.checado=!cl.checado" (click)="cl.abrir=!cl.abrir" >Checado</ion-button>
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>
+
+
+
+
+<!--
+
+  
+
+
+
+
+-->
