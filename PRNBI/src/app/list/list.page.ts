@@ -60,6 +60,9 @@ export class ListPage implements OnInit {
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
+  private inspecaoExterna = [{objeto: "Avionics", acao: "OFF", checado: false, abrir: false},]
+  //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
+  //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private checkAcionamento = [{objeto: "Preflight Inspection", acao: "Completed", checado: false, abrir: false},
                               {objeto: "Brakes", acao: "Hold", checado: false, abrir: false},
                               {objeto: "Wheel Chock", acao: "Removed", checado: false, abrir: false},
