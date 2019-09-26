@@ -9,7 +9,7 @@
   
   <ion-content class="ion-padding" fullscreen>
     <div id="noRegistro">{{teste}}</div>
-    <ion-card button="true" *ngFor="let historia of calculos" >
+    <ion-card button="true" *ngFor="let historia of calculos">
       <ion-item>
         <ion-icon name="airplane" slot="start" (click)="historia.expandir = !historia.expandir"></ion-icon>
         <ion-icon name="trash" slot="end" (click)="presentAlert(historia)"></ion-icon>

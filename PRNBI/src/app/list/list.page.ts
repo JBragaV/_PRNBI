@@ -228,6 +228,7 @@ export class ListPage implements OnInit {
   
 
   //Check-list de emergência 
+
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
   private engineFireStart = [{objeto: "Starter", acao: "ENGAGE", checado: false, abrir: false},
@@ -249,7 +250,7 @@ export class ListPage implements OnInit {
   {objeto: "Fuel pump", acao: "OFF", checado: false, abrir: false},
   {objeto: "Cowl Flaps affected Engine", acao: "Closed", checado: false, abrir: false},
   {objeto: "Alternator affected Engine", acao: "OFF", checado: false, abrir: false},
-  {objeto: "Electrical load", acao: "Reduce", checado: false, abrir: false},
+  {objeto: "Electrical load", acao: "Reduce", checado: false, abrir: false}
 ]
 
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -259,7 +260,7 @@ export class ListPage implements OnInit {
   {objeto: "Alternative Air", acao: "ON", checado: false, abrir: false},
   {objeto: "Mixture", acao: "As required", checado: false, abrir: false},
   {objeto: "Fuel Pumps", acao: "ON", checado: false, abrir: false},
-  {objeto: "Magnetos", acao: "Left or Right only", checado: false, abrir: false},
+  {objeto: "Magnetos", acao: "Left or Right only", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -273,7 +274,7 @@ export class ListPage implements OnInit {
   {objeto: "Fuel Pump", acao: "OFF", checado: false, abrir: false},
   {objeto: "Cowl Flaps Affected Engine", acao: "Closed", checado: false, abrir: false},
   {objeto: "Alternator Affected Engine", acao: "OFF", checado: false, abrir: false},
-  {objeto: "Electrical Load", acao: "Reduce", checado: false, abrir: false},
+  {objeto: "Electrical Load", acao: "Reduce", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -284,17 +285,17 @@ export class ListPage implements OnInit {
   {objeto: "Propeller Control", acao: "Cruise Position", checado: false, abrir: false},
   {objeto: "Mixture", acao: "Full Forward", checado: false, abrir: false},
   {objeto: "Magnetos", acao: "ON", checado: false, abrir: false},
-  {objeto: "Starter", acao: "Engage till prop windmills", checado: false, abrir: false},
+  {objeto: "Starter", acao: "Engage till prop windmills", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
   //checado: inicador que determina se objeto foi checado, abrir: Condição para exibir ação no card
-  private Overspeed = [{objeto: "Affected Engine", acao: "Identified", checado: false, abrir: false},
+  private overspeed = [{objeto: "Affected Engine", acao: "Identified", checado: false, abrir: false},
   {objeto: "Throttle", acao: "Closed", checado: false, abrir: false},
   {objeto: "Speed", acao: "105 MPH", checado: false, abrir: false},
   {objeto: "Propeller Control", acao: "Low RPM", checado: false, abrir: false},
   {objeto: "Throttle", acao: "Slowly Increased", checado: false, abrir: false},
-  {objeto: "Normal RPM", acao: "Check", checado: false, abrir: false},
+  {objeto: "Normal RPM", acao: "Check", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -304,7 +305,7 @@ export class ListPage implements OnInit {
   {objeto: "Circuit brake", acao: "Check IN", checado: false, abrir: false},
   {objeto: "Master", acao: "ON", checado: false, abrir: false},
   {objeto: "Alternators", acao: "Check", checado: false, abrir: false},
-  {objeto: "Landing gear lights", acao: "Check 3 Green Lights", checado: false, abrir: false},
+  {objeto: "Landing gear lights", acao: "Check 3 Green Lights", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -313,7 +314,7 @@ export class ListPage implements OnInit {
   {objeto: "Circuit brake", acao: "OUT", checado: false, abrir: false},
   {objeto: "Speed", acao: "Below 100 MPH", checado: false, abrir: false},
   {objeto: "Emergency Gear Knob", acao: "Pull", checado: false, abrir: false},
-  {objeto: "Landing Gear Lights", acao: "Check 3 Green Lights", checado: false, abrir: false},
+  {objeto: "Landing Gear Lights", acao: "Check 3 Green Lights", checado: false, abrir: false}
 ]
   
   //Checks-lists objeto: objeto a ser checado, acao: Ação necessária ao objeto a ser checado, 
@@ -323,8 +324,7 @@ export class ListPage implements OnInit {
   {objeto: "Throttles", acao: "Close just before touchdown", checado: false, abrir: false},
   {objeto: "Master and magnetos", acao: "OFF before Touchdown", checado: false, abrir: false},
   {objeto: "Fuel Selector", acao: "OFF", checado: false, abrir: false},
-  {objeto: "Contact Surface", acao: "Minimum Airspeed", checado: false, abrir: false},
-]
+  {objeto: "Contact Surface", acao: "Minimum Airspeed", checado: false, abrir: false}]
 }
 
 /* 

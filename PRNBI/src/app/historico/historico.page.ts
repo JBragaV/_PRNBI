@@ -21,22 +21,22 @@ export class HistoricoPage {
   ionViewWillEnter() {
     this.plt.ready().then(()=>{
       this.listar()
-      this.msg = setTimeout(()=>this.ListaVazia(), 100)
     })
   }
 
-  ListaVazia(){
-    if(this.calculos.length !== 0){
-      console.log("Cheguei")
-      document.getElementById("noRegistro").style.display = "none";
-    }else{
-      console.log("Fui expulos do if")
-      document.getElementById("noRegistro").style.display = "block";
-    }
+  async ListaVazia(){
+
   }
   listar(){
     this.calculoService.getAll().then(clcls =>{
       this.calculos = clcls
+      if(this.calculos.length !== 0){
+        console.log("Cheguei")
+        document.getElementById("noRegistro").style.display = "none";
+      }else{
+        console.log("Fui expulos do if")
+        document.getElementById("noRegistro").style.display = "block";
+      }
     })
   }
   
